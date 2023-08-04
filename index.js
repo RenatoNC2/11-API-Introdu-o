@@ -4,7 +4,7 @@ const port = 3000;                  // Define a porta
 
 app.get("/", (req, res) => {        // Cria a rota da raiz do projeto
   res.json({
-    nome: "Renato_Neres_Cota",      // Substitua pelo seu nome
+    nome: "Renato_Neres_Costa",      // Substitua pelo seu nome
   });
   console.log("Rota / solicitada");
 });

@@ -12,7 +12,7 @@ app.use(roteadorUsuario);
 
 app.get("/", (req, res) => {
   res.json({
-    message: "API para CRUD usuario: link_gitgub",
+    message: "API para CRUD usuario: https://github.com/RenatoNC2/11-API-Introdu-o.git",
   });
 });
 

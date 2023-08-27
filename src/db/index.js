@@ -13,7 +13,7 @@ async function connect() {
     return res.rows;
     
   }
-  export { selectUsuarios, selectUsuario, insertUsuario, deleteUsuario, updateUsuario };
+  
   async function selectUsuario(id) {
     const client = await connect();
     const query = "SELECT * FROM usuario WHERE id = $1";
@@ -40,3 +40,4 @@ async function updateUsuario(data) {
   const usuario = [data.nome, data.email, data.senha, data.id];
   await client.query(query, usuario);
 }
+export { selectUsuarios, selectUsuario, insertUsuario, deleteUsuario, updateUsuario };

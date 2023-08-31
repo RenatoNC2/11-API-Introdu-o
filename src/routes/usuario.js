@@ -14,7 +14,7 @@ router.get("/usuarios", async (req, res) => {
 });
 
 router.get("/usuario/:id", async (req, res) => {
-console.log("Rota GET /usuario solicitada");
+  console.log(`Rota GET /usuario/${req.params.id} solicitada`);
 try {
     const usuario = await selectUsuario(req.params.id);
     if (usuario.length > 0) res.json(usuario);
@@ -62,7 +62,7 @@ try {
 });
 
 router.get("/usuario", async (req, res) => {
-  console.log(`Rota GET /usuarios solicitada pelo usuario ${req.userId}`);
+  console.log("Rota GET /usuario solicitada");
   try {
     const usuarios = await selectUsuarios();
     res.json(usuarios);

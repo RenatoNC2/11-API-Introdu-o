@@ -5,7 +5,9 @@ async function connect() {
       connectionString: process.env.URL_BD,
     });
     return pool.connect();
+
   }
+  export { selectUsuarios, selectUsuario, insertUsuario, deleteUsuario, updateUsuario, autenticarUsuario };
   async function selectUsuarios() {
     
     const client = await connect();
@@ -40,4 +42,12 @@ async function updateUsuario(data) {
   const usuario = [data.nome, data.email, data.senha, data.id];
   await client.query(query, usuario);
 }
-export { selectUsuarios, selectUsuario, insertUsuario, deleteUsuario, updateUsuario };
+
+
+async function autenticarUsuario(email, senha) {
+  const client = await connect();
+  const query = "SELECT * FROM usuario WHERE email = $1 AND senha = $2";
+  const usuario = [email, senha];
+  const res = await client.query(query, usuario);
+  return res.rows[0];
+}
